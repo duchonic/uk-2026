@@ -234,6 +234,104 @@
       border-radius: 99px; padding: 3px 10px; font-weight: 500;
     }
 
+    /* ── Dining section ── */
+    .dining-section {
+      border-top: 1px dashed #d1d5db;
+      margin-top: 14px;
+      padding-top: 12px;
+    }
+    .dining-header {
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: #9ca3af; margin-bottom: 10px;
+    }
+    .dining-options { display: flex; flex-direction: column; gap: 8px; }
+    .dining-option {
+      padding: 10px 12px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+    }
+    .dining-option-top {
+      display: flex; align-items: baseline; gap: 8px;
+      flex-wrap: wrap; margin-bottom: 3px;
+    }
+    .dining-name { font-size: .88rem; font-weight: 700; color: #111; }
+    .dining-type {
+      font-size: .66rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 99px;
+      background: #f3f4f6; color: #6b7280;
+    }
+    .dining-type.pub    { background: #fef3c7; color: #92400e; }
+    .dining-type.fish   { background: #eff6ff; color: #1d4ed8; }
+    .dining-type.fine   { background: #fdf4ff; color: #7e22ce; }
+    .dining-type.bistro { background: #ecfdf5; color: #065f46; }
+    .dining-type.wine   { background: #fdf2f8; color: #9d174d; }
+    .dining-type.whisky { background: #fffbeb; color: #b45309; }
+    .dining-desc { font-size: .8rem; color: #6b7280; line-height: 1.45; }
+
+    /* ── Music section ── */
+    .music-section {
+      border-top: 1px dashed #d1d5db;
+      margin-top: 14px; padding-top: 12px;
+    }
+    .music-header {
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: #9ca3af; margin-bottom: 10px;
+    }
+    .music-list { display: flex; flex-direction: column; gap: 5px; }
+    .music-item { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+    .music-artist { font-size: .85rem; font-weight: 700; color: #111; }
+    .music-track { font-size: .82rem; color: #6b7280; font-style: italic; }
+
+    /* ── Journey map ── */
+    .map-wrapper {
+      max-width: 760px; margin: 36px auto 0; padding: 0 24px;
+    }
+    .map-wrapper h2 {
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #9ca3af; margin-bottom: 14px;
+    }
+    .map-container {
+      background: #fff; border: 1px solid #e5e5e3;
+      border-radius: 12px; overflow: hidden;
+      padding: 16px; text-align: center;
+    }
+    .map-container svg { max-width: 420px; width: 100%; border-radius: 8px; }
+    .map-caption { font-size: .72rem; color: #9ca3af; margin-top: 8px; }
+
+    /* ── Missed hotspots ── */
+    .hotspot-section {
+      max-width: 760px; margin: 0 auto; padding: 0 24px 60px;
+    }
+    .hotspot-intro {
+      font-size: .85rem; color: #6b7280; margin-bottom: 24px; line-height: 1.6;
+    }
+    .hotspot-region-block { margin-bottom: 28px; }
+    .hotspot-region-title {
+      font-size: .75rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: #374151;
+      padding-bottom: 7px; margin-bottom: 12px;
+      border-bottom: 2px solid #e5e5e3;
+    }
+    .hotspot-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 10px;
+    }
+    .hotspot-card {
+      background: #fff; border: 1px solid #e5e5e3;
+      border-radius: 8px; padding: 12px 14px;
+    }
+    .hotspot-name { font-size: .88rem; font-weight: 700; color: #111; display: block; }
+    .hotspot-dist {
+      font-size: .7rem; color: #d97706; font-weight: 600;
+      display: block; margin-top: 2px; margin-bottom: 4px;
+    }
+    .hotspot-desc { font-size: .78rem; color: #6b7280; line-height: 1.45; }
+
     /* ── Footer ── */
     footer {
       text-align: center; padding: 24px;
@@ -319,6 +417,90 @@
   </div>
 </div>
 
+<!-- Journey map -->
+<div class="map-wrapper">
+  <h2>Journey map</h2>
+  <div class="map-container">
+    <svg viewBox="0 0 420 590" xmlns="http://www.w3.org/2000/svg">
+      <!-- Sea background -->
+      <rect width="420" height="590" fill="#dbeafe" rx="8"/>
+
+      <!-- UK mainland outline (simplified) -->
+      <path d="M 50,520 L 108,502 L 145,497 L 175,492 L 220,473 L 282,478 L 348,460
+               L 365,420 L 360,384 L 292,290 L 228,240 L 200,194
+               L 184,175 L 174,155 L 180,140 L 196,114 L 200,83 L 153,29
+               L 79,33 L 69,29
+               L 62,71 L 48,157 L 38,200 L 35,220
+               L 68,244 L 75,259
+               L 90,278 L 140,295 L 118,330 L 90,380 L 57,418 L 85,445 L 148,441
+               L 175,443 L 160,465 L 140,490 L 100,505 L 70,515 L 50,520 Z"
+            fill="#f0ebe0" stroke="#c9bfa8" stroke-width="1.5" stroke-linejoin="round"/>
+
+      <!-- Day-trip connector lines -->
+      <line x1="148" y1="183" x2="177" y2="181" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="218" y1="240" x2="219" y2="251" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="220" y1="296" x2="240" y2="298" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="220" y1="296" x2="207" y2="300" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="273" y1="425" x2="282" y2="440" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+      <!-- Main route line -->
+      <polyline points="148,183 140,179 218,240 260,268 220,296 273,425 280,460"
+                fill="none" stroke="#dc2626" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Day-trip city dots (orange) -->
+      <circle cx="177" cy="181" r="4" fill="#f97316" stroke="white" stroke-width="1.5"/>
+      <circle cx="219" cy="251" r="4" fill="#f97316" stroke="white" stroke-width="1.5"/>
+      <circle cx="240" cy="298" r="4" fill="#f97316" stroke="white" stroke-width="1.5"/>
+      <circle cx="207" cy="300" r="4" fill="#f97316" stroke="white" stroke-width="1.5"/>
+      <circle cx="282" cy="440" r="4" fill="#f97316" stroke="white" stroke-width="1.5"/>
+
+      <!-- Overnight stay dots (blue) -->
+      <circle cx="140" cy="179" r="6" fill="#1d4ed8" stroke="white" stroke-width="2"/>
+      <circle cx="218" cy="240" r="6" fill="#1d4ed8" stroke="white" stroke-width="2"/>
+      <circle cx="260" cy="268" r="6" fill="#1d4ed8" stroke="white" stroke-width="2"/>
+      <circle cx="220" cy="296" r="6" fill="#1d4ed8" stroke="white" stroke-width="2"/>
+      <circle cx="273" cy="425" r="6" fill="#1d4ed8" stroke="white" stroke-width="2"/>
+
+      <!-- Flight dots (purple) -->
+      <circle cx="148" cy="183" r="7" fill="#7c3aed" stroke="white" stroke-width="2"/>
+      <circle cx="280" cy="460" r="7" fill="#7c3aed" stroke="white" stroke-width="2"/>
+
+      <!-- City labels -->
+      <text x="158" y="178" font-size="9" font-weight="700" fill="#111" font-family="system-ui,sans-serif">Edinburgh / Dalgety Bay</text>
+      <text x="158" y="190" font-size="7.5" fill="#7c3aed" font-family="system-ui,sans-serif">✈ EDI arrival 24 Jul</text>
+      <text x="183" y="193" font-size="8" fill="#92400e" font-family="system-ui,sans-serif">Dunbar ↗</text>
+      <text x="225" y="238" font-size="9" font-weight="700" fill="#111" font-family="system-ui,sans-serif">Newcastle</text>
+      <text x="225" y="258" font-size="7.5" fill="#92400e" font-family="system-ui,sans-serif">Durham ↓</text>
+      <text x="267" y="268" font-size="9" font-weight="700" fill="#111" font-family="system-ui,sans-serif">Whitby</text>
+      <text x="140" y="292" font-size="9" font-weight="700" fill="#111" font-family="system-ui,sans-serif">Harrogate</text>
+      <text x="244" y="296" font-size="7.5" fill="#92400e" font-family="system-ui,sans-serif">York ↗</text>
+      <text x="193" y="312" font-size="7.5" fill="#92400e" font-family="system-ui,sans-serif">Ilkley ↙</text>
+      <text x="279" y="422" font-size="9" font-weight="700" fill="#111" font-family="system-ui,sans-serif">St Albans</text>
+      <text x="288" y="438" font-size="7.5" fill="#92400e" font-family="system-ui,sans-serif">London ↗</text>
+      <text x="287" y="462" font-size="9" font-weight="700" fill="#7c3aed" font-family="system-ui,sans-serif">✈ Gatwick</text>
+
+      <!-- Legend -->
+      <rect x="15" y="530" width="155" height="52" rx="6" fill="white" fill-opacity="0.88"/>
+      <circle cx="28" cy="543" r="5" fill="#7c3aed" stroke="white" stroke-width="1.5"/>
+      <text x="38" y="547" font-size="8" fill="#374151" font-family="system-ui,sans-serif">Flight (arrival/departure)</text>
+      <circle cx="28" cy="558" r="5" fill="#1d4ed8" stroke="white" stroke-width="1.5"/>
+      <text x="38" y="562" font-size="8" fill="#374151" font-family="system-ui,sans-serif">Overnight stay</text>
+      <circle cx="28" cy="573" r="4" fill="#f97316" stroke="white" stroke-width="1.5"/>
+      <text x="38" y="577" font-size="8" fill="#374151" font-family="system-ui,sans-serif">Day trip</text>
+
+      <!-- North arrow -->
+      <g transform="translate(385,38)">
+        <circle r="15" fill="white" fill-opacity="0.85"/>
+        <text x="0" y="-3" text-anchor="middle" font-size="9" font-weight="700" fill="#374151" font-family="system-ui,sans-serif">N</text>
+        <polygon points="0,-12 3,-4 0,-7 -3,-4" fill="#374151"/>
+        <polygon points="0,12 3,4 0,7 -3,4" fill="#9ca3af"/>
+      </g>
+    </svg>
+    <p class="map-caption">Simplified overview — red line = main route, orange = day trips</p>
+  </div>
+</div>
+
 <main>
   <div class="section-label">Itinerary</div>
 
@@ -345,13 +527,14 @@
       </div>
 
       <div class="segment">
-        <div class="seg-icon train">🚌</div>
+        <div class="seg-icon train">🚋</div>
         <div class="seg-body">
-          <div class="seg-route">Edinburgh Airport → Dalgety Bay</div>
+          <div class="seg-route">Edinburgh Airport → Haymarket → Dalgety Bay</div>
           <div class="seg-meta">
-            <span>🕗 ~30–45 min drive</span>
+            <span>🚊 Edinburgh Trams + ScotRail</span>
+            <span>🕗 ~55 min total</span>
           </div>
-          <div class="seg-note">Cross the Forth Road Bridge</div>
+          <div class="seg-note">Edinburgh Trams from Airport to Haymarket (~30 min, runs every 8 min), then ScotRail Fife Circle northbound to Dalgety Bay (~20 min). Trains every 30 min — cross under the Forth.</div>
         </div>
       </div>
 
@@ -378,6 +561,46 @@
         <span class="highlight-chip">🌉 Forth bridges nearby</span>
         <span class="highlight-chip">🏰 Edinburgh ~25 mi</span>
         <span class="highlight-chip">🇬🇧 Scotland</span>
+      </div>
+      <div class="dining-section">
+        <div class="dining-header">🍽️ Dinner options — Edinburgh</div>
+        <div class="dining-options">
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Timberyard</span>
+              <span class="dining-type bistro">Restaurant</span>
+            </div>
+            <div class="dining-desc">Award-winning sustainable Scottish cooking in a converted Victorian warehouse in the Grassmarket. Seasonal, locally sourced — genuinely excellent.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Café St Honoré</span>
+              <span class="dining-type bistro">Bistro</span>
+            </div>
+            <div class="dining-desc">Charming French-Scottish bistro tucked down a New Town lane. Classic dishes, excellent wine list, and a warm neighbourhood atmosphere.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The Hanging Bat</span>
+              <span class="dining-type pub">Pub</span>
+            </div>
+            <div class="dining-desc">Edinburgh's beloved craft beer bar on Lothian Road — huge tap selection, great burgers, and lively atmosphere. No booking needed.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Divino Enoteca</span>
+              <span class="dining-type wine">Wine bar</span>
+            </div>
+            <div class="dining-desc">Italian enoteca on Merchant Street with 200+ wines by the glass or bottle. Excellent charcuterie and cheeses — ideal for a relaxed evening in the Old Town.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The Bow Bar</span>
+              <span class="dining-type whisky">Whisky bar</span>
+            </div>
+            <div class="dining-desc">A legendary Edinburgh institution on West Bow — over 300 single malts, no music, no food. Just serious whisky and conversation. The definitive Scottish whisky bar.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -436,6 +659,16 @@
         <span class="highlight-chip">🦅 Bass Rock</span>
         <span class="highlight-chip">🏘️ East Neuk villages</span>
       </div>
+      <div class="music-section">
+        <div class="music-header">🎵 Soundtrack — Edinburgh</div>
+        <div class="music-list">
+          <div class="music-item"><span class="music-artist">The Proclaimers</span><span class="music-track">"I'm Gonna Be (500 Miles)"</span></div>
+          <div class="music-item"><span class="music-artist">Franz Ferdinand</span><span class="music-track">"Take Me Out"</span></div>
+          <div class="music-item"><span class="music-artist">Frightened Rabbit</span><span class="music-track">"Modern Leper"</span></div>
+          <div class="music-item"><span class="music-artist">Mogwai</span><span class="music-track">"Auto Rock"</span></div>
+          <div class="music-item"><span class="music-artist">Biffy Clyro</span><span class="music-track">"Mountains"</span></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -450,13 +683,14 @@
       </div>
 
       <div class="segment">
-        <div class="seg-icon car">🚗</div>
+        <div class="seg-icon train">🚂</div>
         <div class="seg-body">
-          <div class="seg-route">Dalgety Bay → Dunbar</div>
+          <div class="seg-route">Dalgety Bay → Edinburgh Waverley → Dunbar</div>
           <div class="seg-meta">
-            <span>🕑 ~1h 20 min drive</span>
-            <span>📏 ~20 miles</span>
+            <span>🚉 ScotRail + LNER/ScotRail</span>
+            <span>🕑 ~1h 10 min (2 trains)</span>
           </div>
+          <div class="seg-note">ScotRail Fife Circle south to Edinburgh Waverley (~20 min), then LNER or ScotRail south on the East Coast Main Line to Dunbar (~30 min). Trains run frequently.</div>
           <a class="maps-link" href="https://maps.google.com/?q=Dunbar,+East+Lothian,+Scotland" target="_blank">📍 Dunbar on Maps</a>
         </div>
       </div>
@@ -593,6 +827,56 @@
         <span class="highlight-chip">🌿 Jesmond Dene</span>
         <span class="highlight-chip">🏰 Hadrian's Wall nearby</span>
       </div>
+      <div class="music-section">
+        <div class="music-header">🎵 Soundtrack — Newcastle</div>
+        <div class="music-list">
+          <div class="music-item"><span class="music-artist">Sam Fender</span><span class="music-track">"Hypersonic Missiles"</span></div>
+          <div class="music-item"><span class="music-artist">The Animals</span><span class="music-track">"House of the Rising Sun"</span></div>
+          <div class="music-item"><span class="music-artist">Sting</span><span class="music-track">"Every Breath You Take"</span></div>
+          <div class="music-item"><span class="music-artist">Mark Knopfler</span><span class="music-track">"Going Home (Local Hero)"</span></div>
+          <div class="music-item"><span class="music-artist">Pet Shop Boys</span><span class="music-track">"West End Girls"</span></div>
+        </div>
+      </div>
+      <div class="dining-section">
+        <div class="dining-header">🍽️ Dinner options — Newcastle</div>
+        <div class="dining-options">
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">House of Tides</span>
+              <span class="dining-type fine">Fine dining</span>
+            </div>
+            <div class="dining-desc">Kenny Atkinson's Michelin-starred restaurant in a 16th-century merchant's house on the Quayside. Outstanding modern British cooking — book well ahead.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Dobson &amp; Parnell</span>
+              <span class="dining-type bistro">Bistro</span>
+            </div>
+            <div class="dining-desc">Refined British brasserie on the Quayside in a beautifully restored warehouse space. Excellent seafood, great cocktails, relaxed atmosphere.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The Broad Chare</span>
+              <span class="dining-type pub">Pub</span>
+            </div>
+            <div class="dining-desc">Terry Laybourne's acclaimed Quayside pub with serious food and a stellar real ale selection. Steak and kidney pudding, potted crab — proper pub classics done brilliantly.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Barluga</span>
+              <span class="dining-type wine">Wine bar</span>
+            </div>
+            <div class="dining-desc">Stylish wine bar and brasserie on Grey Street — one of England's finest Victorian streets. Great wine list, cocktails, and light bites in an elegant setting.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The Centurion</span>
+              <span class="dining-type whisky">Whisky bar</span>
+            </div>
+            <div class="dining-desc">A breathtaking Victorian bar inside Newcastle Central Station — high vaulted ceilings, stained glass, and an excellent spirits selection including a strong whisky range.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -727,11 +1011,11 @@
       <div class="segment">
         <div class="seg-icon explore">🌿</div>
         <div class="seg-body">
-          <div class="seg-route">North York Moors National Park</div>
+          <div class="seg-route">North York Moors — via Steam Railway</div>
           <div class="seg-meta">
-            <span>🚗 Short drive from Whitby</span>
+            <span>🚂 NYMR from Whitby station</span>
           </div>
-          <div class="seg-note">Heather moorland, steam railway (North Yorkshire Moors Railway), charming villages like Goathland</div>
+          <div class="seg-note">Take the North Yorkshire Moors Railway steam train directly from Whitby to Goathland (~30 min) or Pickering (~1h). Heather moorland, dramatic gritstone, charming villages — Goathland is "Heartbeat" country.</div>
           <a class="maps-link" href="https://maps.google.com/?q=North+York+Moors+National+Park" target="_blank">📍 North York Moors on Maps</a>
         </div>
       </div>
@@ -767,6 +1051,56 @@
         <span class="highlight-chip">🏘️ Robin Hood's Bay</span>
         <span class="highlight-chip">⚓ Harbour market</span>
       </div>
+      <div class="music-section">
+        <div class="music-header">🎵 Soundtrack — Whitby &amp; the Moors</div>
+        <div class="music-list">
+          <div class="music-item"><span class="music-artist">The Unthanks</span><span class="music-track">"Last"</span></div>
+          <div class="music-item"><span class="music-artist">Kate Rusby</span><span class="music-track">"Underneath the Stars"</span></div>
+          <div class="music-item"><span class="music-artist">Elbow</span><span class="music-track">"One Day Like This"</span></div>
+          <div class="music-item"><span class="music-artist">Nick Drake</span><span class="music-track">"Northern Sky"</span></div>
+          <div class="music-item"><span class="music-artist">Richard Hawley</span><span class="music-track">"Tonight the Streets Are Ours"</span></div>
+        </div>
+      </div>
+      <div class="dining-section">
+        <div class="dining-header">🍽️ Dinner options — Whitby</div>
+        <div class="dining-options">
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The Star Inn the Harbour</span>
+              <span class="dining-type fine">Restaurant</span>
+            </div>
+            <div class="dining-desc">Andrew Pern's celebrated harbourside restaurant — outstanding Yorkshire seafood and seasonal produce, right on the water. Book ahead.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Trenchers</span>
+              <span class="dining-type fish">Fish &amp; chips</span>
+            </div>
+            <div class="dining-desc">A step up from takeaway — full restaurant service with superb fresh fish &amp; chips, local crab, and traditional puddings. A Whitby institution.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The Duke of York</span>
+              <span class="dining-type pub">Pub</span>
+            </div>
+            <div class="dining-desc">Famous old pub at the foot of the 199 steps — real ales, harbour views, and an atmosphere that hasn't changed in decades. The definitive Whitby pint.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The White Horse &amp; Griffin</span>
+              <span class="dining-type wine">Wine bar</span>
+            </div>
+            <div class="dining-desc">A 17th-century coaching inn on Church Street with one of Whitby's best wine lists. Atmospheric stone interior and a relaxed bar — perfect for an evening glass after the abbey.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The Endeavour</span>
+              <span class="dining-type whisky">Whisky bar</span>
+            </div>
+            <div class="dining-desc">Tucked on Church Street in the old town, The Endeavour carries an impressive selection of single malts alongside local ales — small, cosy, and full of maritime character.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -781,12 +1115,14 @@
       </div>
 
       <div class="segment">
-        <div class="seg-icon train">🚂</div>
+        <div class="seg-icon bus">🚌</div>
         <div class="seg-body">
-          <div class="seg-route">Whitby → York</div>
+          <div class="seg-route">Whitby → Scarborough → York</div>
           <div class="seg-meta">
-            <span>🕑 ~2h by bus/train</span>
+            <span>🚌 Arriva X93 bus + TransPennine Express train</span>
+            <span>🕑 ~2h 30 min total</span>
           </div>
+          <div class="seg-note">Arriva X93 bus Whitby → Scarborough (~1h, scenic coastal road), then TransPennine Express train Scarborough → York (~45 min). Alternative: Esk Valley Railway to Middlesbrough, then train south to York.</div>
           <a class="maps-link" href="https://maps.google.com/?q=York,+England" target="_blank">📍 York on Maps</a>
         </div>
       </div>
@@ -834,6 +1170,56 @@
         <span class="highlight-chip">⚔️ Jorvik Viking Centre</span>
         <span class="highlight-chip">🏰 York city walls</span>
         <span class="highlight-chip">🌉 Knaresborough viaduct</span>
+      </div>
+      <div class="music-section">
+        <div class="music-header">🎵 Soundtrack — York</div>
+        <div class="music-list">
+          <div class="music-item"><span class="music-artist">Shed Seven</span><span class="music-track">"Chasing Rainbows"</span></div>
+          <div class="music-item"><span class="music-artist">The Howl &amp; The Hum</span><span class="music-track">"Human"</span></div>
+          <div class="music-item"><span class="music-artist">The Cribs</span><span class="music-track">"Men's Needs"</span></div>
+          <div class="music-item"><span class="music-artist">Arctic Monkeys</span><span class="music-track">"Do I Wanna Know?"</span></div>
+          <div class="music-item"><span class="music-artist">Joe Cocker</span><span class="music-track">"With a Little Help from My Friends"</span></div>
+        </div>
+      </div>
+      <div class="dining-section">
+        <div class="dining-header">🍽️ Dinner options — York</div>
+        <div class="dining-options">
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Skosh</span>
+              <span class="dining-type bistro">Small plates</span>
+            </div>
+            <div class="dining-desc">Consistently one of York's best restaurants — creative, globally influenced small plates in a relaxed Micklegate dining room. Very popular, book ahead.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Trembling Madness</span>
+              <span class="dining-type pub">Pub</span>
+            </div>
+            <div class="dining-desc">A medieval great hall transformed into one of England's most atmospheric bars. Hundreds of bottled beers, mead, and hearty food — right next to the Minster.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The Ivy York</span>
+              <span class="dining-type bistro">Brasserie</span>
+            </div>
+            <div class="dining-desc">Reliable all-day brasserie on Stonegate in a beautiful listed building. Classic dishes, good cocktails, and a buzzing atmosphere — no surprises, always enjoyable.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Sotano</span>
+              <span class="dining-type wine">Wine bar</span>
+            </div>
+            <div class="dining-desc">Spanish-inspired wine bar beneath Stonegate — natural wines, sherries, and pintxos in a candlelit basement. One of York's most intimate spots for a pre- or post-dinner drink.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The Maltings</span>
+              <span class="dining-type whisky">Whisky bar</span>
+            </div>
+            <div class="dining-desc">A traditional pub near Lendal Bridge with one of York's largest whisky collections. Unpretentious, friendly, and a favourite with locals — excellent cask ales too.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -890,6 +1276,56 @@
         <span class="highlight-chip">🛁 Turkish Baths</span>
         <span class="highlight-chip">🌿 RHS Harlow Carr</span>
         <span class="highlight-chip">🛍️ Montpellier Quarter</span>
+      </div>
+      <div class="music-section">
+        <div class="music-header">🎵 Soundtrack — Harrogate / Yorkshire</div>
+        <div class="music-list">
+          <div class="music-item"><span class="music-artist">Kaiser Chiefs</span><span class="music-track">"Ruby"</span></div>
+          <div class="music-item"><span class="music-artist">The Wedding Present</span><span class="music-track">"Kennedy"</span></div>
+          <div class="music-item"><span class="music-artist">Pulp</span><span class="music-track">"Common People"</span></div>
+          <div class="music-item"><span class="music-artist">The Pigeon Detectives</span><span class="music-track">"I'm Not Sorry"</span></div>
+          <div class="music-item"><span class="music-artist">The Bluetones</span><span class="music-track">"Slight Return"</span></div>
+        </div>
+      </div>
+      <div class="dining-section">
+        <div class="dining-header">🍽️ Dinner options — Harrogate</div>
+        <div class="dining-options">
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Van Zeller</span>
+              <span class="dining-type fine">Fine dining</span>
+            </div>
+            <div class="dining-desc">Tom Van Zeller's outstanding seasonal tasting menus in elegant surroundings in the Montpellier Quarter. One of North Yorkshire's finest restaurants.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Orchid</span>
+              <span class="dining-type bistro">Pan-Asian</span>
+            </div>
+            <div class="dining-desc">A Harrogate institution — refined pan-Asian cooking spanning Chinese, Japanese, and Southeast Asian cuisines. Elegant basement setting, great for a special evening.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The Major</span>
+              <span class="dining-type pub">Gastropub</span>
+            </div>
+            <div class="dining-desc">Smart and lively town-centre gastropub with a great cask ale selection and solid seasonal menu. Relaxed, friendly, and no need to book well ahead.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Rustique</span>
+              <span class="dining-type wine">Wine bar</span>
+            </div>
+            <div class="dining-desc">French bistro and wine bar on Cheltenham Crescent — Gallic charm, an excellent all-French wine list, and charcuterie boards. A lovely spot for an aperitif or a full evening.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Harrogate Tap</span>
+              <span class="dining-type whisky">Whisky bar</span>
+            </div>
+            <div class="dining-desc">Inside Harrogate's beautiful Victorian station — a well-stocked bar with an impressive range of Scottish and world whiskies alongside craft ales. Atmospheric and convenient.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1070,6 +1506,56 @@
         <span class="highlight-chip">🌉 Tower Bridge</span>
         <span class="highlight-chip">⚓ Greenwich</span>
       </div>
+      <div class="music-section">
+        <div class="music-header">🎵 Soundtrack — St Albans / London</div>
+        <div class="music-list">
+          <div class="music-item"><span class="music-artist">The Zombies</span><span class="music-track">"Time of the Season"</span></div>
+          <div class="music-item"><span class="music-artist">Supertramp</span><span class="music-track">"Dreamer"</span></div>
+          <div class="music-item"><span class="music-artist">Blur</span><span class="music-track">"Country House"</span></div>
+          <div class="music-item"><span class="music-artist">The Kinks</span><span class="music-track">"Waterloo Sunset"</span></div>
+          <div class="music-item"><span class="music-artist">David Bowie</span><span class="music-track">"Heroes"</span></div>
+        </div>
+      </div>
+      <div class="dining-section">
+        <div class="dining-header">🍽️ Dinner options — St Albans</div>
+        <div class="dining-options">
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Lussmans Fish &amp; Grill</span>
+              <span class="dining-type fish">Fish &amp; grill</span>
+            </div>
+            <div class="dining-desc">St Albans' most popular local restaurant — sustainably sourced fish and grills, great value, relaxed atmosphere. A local favourite for good reason.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Darcy's</span>
+              <span class="dining-type bistro">Bistro</span>
+            </div>
+            <div class="dining-desc">Long-established French-British restaurant in an elegant 18th-century dining room steps from the cathedral. Classic cooking, excellent wine, and warm service.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The White Hart Tap</span>
+              <span class="dining-type pub">Pub</span>
+            </div>
+            <div class="dining-desc">Characterful old coaching inn near the cathedral with a superb cask ale selection and good honest pub food. One of St Albans' most atmospheric pubs.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">Sucre</span>
+              <span class="dining-type wine">Wine bar</span>
+            </div>
+            <div class="dining-desc">Vibrant Latin-influenced bar and restaurant with an interesting wine list focused on South American and natural wines. Great cocktails and small plates — lively and fun.</div>
+          </div>
+          <div class="dining-option">
+            <div class="dining-option-top">
+              <span class="dining-name">The Boot</span>
+              <span class="dining-type whisky">Whisky bar</span>
+            </div>
+            <div class="dining-desc">A venerable St Albans pub with one of the best whisky selections in Hertfordshire — dozens of malts alongside cask ales. Cosy, unhurried, and a short walk from the cathedral.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1164,6 +1650,157 @@
   </div>
 
 </main>
+
+<!-- Missed hotspots -->
+<div class="hotspot-section">
+  <div class="section-label" style="margin-bottom:8px;">Sights we're skipping — worth rerouting?</div>
+  <p class="hotspot-intro">Nearby attractions not currently on the itinerary. All reachable by public transport from the relevant base.</p>
+
+  <div class="hotspot-region-block">
+    <div class="hotspot-region-title">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland — near Edinburgh / Dalgety Bay</div>
+    <div class="hotspot-cards">
+      <div class="hotspot-card">
+        <span class="hotspot-name">Stirling Castle</span>
+        <span class="hotspot-dist">~45 min by train from Edinburgh</span>
+        <div class="hotspot-desc">One of Scotland's most important castles, perched on a volcanic crag. Mary Queen of Scots was crowned here. Direct trains from Edinburgh Waverley.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Rosslyn Chapel</span>
+        <span class="hotspot-dist">~35 min by bus from Edinburgh</span>
+        <div class="hotspot-desc">The extraordinary 15th-century chapel made famous by The Da Vinci Code — but far more interesting in real life. Lothian Bus 37 runs directly.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Loch Lomond &amp; The Trossachs</span>
+        <span class="hotspot-dist">~1h 20 by train from Edinburgh</span>
+        <div class="hotspot-desc">Scotland's first national park — dramatic loch scenery, Ben Lomond, and the charming village of Luss. Train to Balloch, then buses into the park.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">St Andrews (full day)</span>
+        <span class="hotspot-dist">~1h from Dalgety Bay (2 trains)</span>
+        <div class="hotspot-desc">Already listed as a quick visit — but the medieval cathedral ruins, castle, and Old Course deserve a full day. Easiest from Dalgety Bay via Leuchars.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hotspot-region-block">
+    <div class="hotspot-region-title">🏰 Northeast England — near Newcastle</div>
+    <div class="hotspot-cards">
+      <div class="hotspot-card">
+        <span class="hotspot-name">Angel of the North</span>
+        <span class="hotspot-dist">~20 min by Metro from Newcastle</span>
+        <div class="hotspot-desc">Antony Gormley's iconic 20-metre steel sculpture. Take the Metro to Gateshead and a short walk. One of England's most visited artworks.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Alnwick Castle</span>
+        <span class="hotspot-dist">~35 min by train + bus from Newcastle</span>
+        <div class="hotspot-desc">The "Harry Potter castle" (exterior filming location) plus medieval state rooms and the extraordinary Alnwick Garden with its poison garden. Arriva X18 bus.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Bamburgh Castle</span>
+        <span class="hotspot-dist">~1h from Newcastle (train + bus)</span>
+        <div class="hotspot-desc">A dramatic Anglo-Saxon fortress on a coastal basalt crag, with long sandy beaches stretching below. Train to Chathill, then bus.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Holy Island / Lindisfarne</span>
+        <span class="hotspot-dist">~1h 20 from Newcastle (train + bus)</span>
+        <div class="hotspot-desc">Tidal island with a medieval priory, ruined castle, and extraordinary atmosphere. Check tide tables — the island is cut off twice daily. Bus from Berwick.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Hadrian's Wall</span>
+        <span class="hotspot-dist">~45 min by bus from Newcastle</span>
+        <div class="hotspot-desc">The best-preserved sections (Housesteads, Vindolanda) are 45 min by the AD122 Hadrian's Wall Bus (seasonal), which runs direct from Newcastle.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Beamish Open Air Museum</span>
+        <span class="hotspot-dist">~30 min by bus from Newcastle</span>
+        <div class="hotspot-desc">A brilliantly recreated 1900s and 1940s town — working trams, period shops, and a functioning colliery. Bus X71 from Newcastle.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hotspot-region-block">
+    <div class="hotspot-region-title">🌊 North Yorkshire Coast — near Whitby</div>
+    <div class="hotspot-cards">
+      <div class="hotspot-card">
+        <span class="hotspot-name">Staithes</span>
+        <span class="hotspot-dist">~25 min by bus from Whitby</span>
+        <div class="hotspot-desc">A strikingly atmospheric fishing village crammed into a steep narrow gorge — Captain Cook's first job was here. Arriva bus from Whitby.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Runswick Bay</span>
+        <span class="hotspot-dist">~20 min by bus from Whitby</span>
+        <div class="hotspot-desc">A curving sandy beach backed by a tumbledown village of red-roofed cottages. One of the most beautiful bays on the Yorkshire coast.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Rievaulx Abbey</span>
+        <span class="hotspot-dist">~45 min by bus from Whitby</span>
+        <div class="hotspot-desc">Hauntingly beautiful ruined Cistercian abbey in a wooded valley. One of England's finest medieval ruins — the scale is remarkable.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hotspot-region-block">
+    <div class="hotspot-region-title">🌿 Yorkshire Dales — near Harrogate / Ilkley</div>
+    <div class="hotspot-cards">
+      <div class="hotspot-card">
+        <span class="hotspot-name">Fountains Abbey &amp; Studley Royal</span>
+        <span class="hotspot-dist">~20 min by bus from Harrogate</span>
+        <div class="hotspot-desc">UNESCO World Heritage Site — England's largest monastic ruin set within a stunning 18th-century water garden. Bus 139 from Harrogate. Do not miss.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Bolton Abbey</span>
+        <span class="hotspot-dist">~15 min by bus from Ilkley</span>
+        <div class="hotspot-desc">Romantic ruined Augustinian priory on the banks of the Wharfe, with beautiful woodland walks along the Strid. Wharfedale bus from Ilkley.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Skipton Castle</span>
+        <span class="hotspot-dist">~30 min by train from Harrogate</span>
+        <div class="hotspot-desc">One of England's best-preserved medieval castles, with a charming market town to explore. Direct trains from Harrogate on the Settle-Carlisle line.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Yorkshire Dales</span>
+        <span class="hotspot-dist">~50 min by bus from Harrogate</span>
+        <div class="hotspot-desc">Wensleydale (and its cheese), Swaledale, and Malham Cove — dramatic limestone scenery. Dales Bus services run seasonally from Harrogate.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hotspot-region-block">
+    <div class="hotspot-region-title">🏛️ Southeast England — near St Albans / London</div>
+    <div class="hotspot-cards">
+      <div class="hotspot-card">
+        <span class="hotspot-name">Cambridge</span>
+        <span class="hotspot-dist">~45 min by train from St Albans</span>
+        <div class="hotspot-desc">King's College Chapel, punting on the Cam, and the Fitzwilliam Museum. Train from St Albans City via London Farringdon to Cambridge.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Oxford</span>
+        <span class="hotspot-dist">~1h by coach from London</span>
+        <div class="hotspot-desc">The Bodleian Library, Christ Church, the Ashmolean Museum, and medieval lanes. Frequent Oxford Tube coaches from London Victoria.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Bath &amp; the Roman Baths</span>
+        <span class="hotspot-dist">~1h 20 by train from London</span>
+        <div class="hotspot-desc">The only natural hot spring in Britain, with a perfectly preserved Roman bathing complex and Georgian architecture. Direct trains from Paddington.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Windsor Castle</span>
+        <span class="hotspot-dist">~35 min by train from St Albans</span>
+        <div class="hotspot-desc">The oldest and largest occupied castle in the world. Train to Windsor &amp; Eton Central from London Paddington or via Slough.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">Stonehenge</span>
+        <span class="hotspot-dist">~1h 30 by train + bus from London</span>
+        <div class="hotspot-desc">Train to Salisbury from London Waterloo, then the Stonehenge Tour bus. Best visited first thing in the morning before crowds arrive.</div>
+      </div>
+      <div class="hotspot-card">
+        <span class="hotspot-name">The Cotswolds</span>
+        <span class="hotspot-dist">~1h 30 from London by train</span>
+        <div class="hotspot-desc">Bourton-on-the-Water, Burford, and the Slaughters — honey-stone villages and rolling hills. Train to Moreton-in-Marsh from Paddington.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer>
   🇨🇭 → 🏴󠁧󠁢󠁳󠁣󠁴󠁿 🏴󠁧󠁢󠥥󠁮󠁧󠁿 → 🇨🇭 · UK Summer 2026 · 24 July – 10 August
