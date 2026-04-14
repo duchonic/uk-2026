@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s https://raw.githubusercontent.com/duchonic/fischer/main/index.html)",
+      "Bash(python3:*)"
+    ]
+  }
+}
