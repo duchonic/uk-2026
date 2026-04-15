@@ -1,0 +1,437 @@
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f7f7f5;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e5e3;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    header .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+    header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: #111;
+    }
+    header p {
+      margin-top: 8px;
+      color: #6b7280;
+      font-size: .95rem;
+    }
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-top: 36px;
+      flex-wrap: wrap;
+      border: 1px solid #e5e5e3;
+      border-radius: 12px;
+      overflow: hidden;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .stat {
+      flex: 1;
+      min-width: 90px;
+      text-align: center;
+      padding: 18px 12px;
+      background: #fff;
+    }
+    .stat + .stat { border-left: 1px solid #e5e5e3; }
+    .stat-value {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #111;
+      letter-spacing: -.02em;
+    }
+    .stat-label {
+      font-size: .68rem;
+      color: #9ca3af;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* ── Distance bars ── */
+    .distance-section {
+      max-width: 760px;
+      margin: 36px auto 0;
+      padding: 0 24px;
+    }
+    .distance-section h2 {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 14px;
+    }
+    .stage-bars { display: flex; flex-direction: column; gap: 8px; }
+    .stage-bar-row { display: flex; align-items: center; gap: 10px; }
+    .stage-bar-label {
+      font-size: .78rem; color: #6b7280;
+      width: 175px; flex-shrink: 0;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .stage-bar-track {
+      flex: 1; height: 8px;
+      background: #f0f0ee; border-radius: 99px; overflow: hidden;
+    }
+    .stage-bar-fill { height: 100%; background: #374151; border-radius: 99px; }
+    .stage-bar-km {
+      font-size: .78rem; font-weight: 600; color: #374151;
+      width: 55px; text-align: right; flex-shrink: 0;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .section-label {
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: #9ca3af; margin-bottom: 16px; margin-top: 8px;
+    }
+
+    /* ── Day card ── */
+    .day-card {
+      background: #fff;
+      border: 1px solid #e5e5e3;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: box-shadow .15s;
+    }
+    .day-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+    .day-card-top { padding: 22px 24px 18px; }
+
+    .day-header {
+      display: flex; align-items: baseline; gap: 10px;
+      margin-bottom: 14px; flex-wrap: wrap;
+    }
+    .day-label {
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; color: #9ca3af;
+    }
+    .day-date {
+      font-size: .78rem; font-weight: 600; color: #6b7280;
+      background: #f3f4f6; border-radius: 5px;
+      padding: 2px 8px;
+    }
+    .day-title {
+      font-size: 1.05rem; font-weight: 700; color: #111; flex: 1;
+    }
+
+    /* ── Badges ── */
+    .badge {
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 99px;
+    }
+    .badge-explore { background: #ecfdf5; color: #059669; }
+    .badge-transit { background: #eff6ff; color: #2563eb; }
+    .badge-fly     { background: #fdf4ff; color: #9333ea; }
+    .badge-arrival { background: #fff7ed; color: #ea580c; }
+    .badge-rest    { background: #f0fdf4; color: #16a34a; }
+
+    /* ── Segments ── */
+    .segment {
+      display: flex; align-items: flex-start;
+      gap: 14px; padding: 10px 0;
+    }
+    .segment + .segment { border-top: 1px solid #f0f0ee; }
+    .seg-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; flex-shrink: 0; margin-top: 2px;
+    }
+    .seg-icon.explore { background: #f0fdf4; }
+    .seg-icon.bus     { background: #eff6ff; }
+    .seg-icon.train   { background: #fefce8; }
+    .seg-icon.fly     { background: #fdf4ff; }
+    .seg-icon.hotel   { background: #fff7ed; }
+    .seg-icon.car     { background: #f0f9ff; }
+
+    .seg-body { flex: 1; }
+    .seg-route { font-size: .95rem; font-weight: 600; color: #111; }
+    .seg-meta {
+      font-size: .83rem; color: #6b7280;
+      margin-top: 2px; display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    .seg-note {
+      font-size: .8rem; color: #6b7280;
+      margin-top: 4px; font-style: italic;
+    }
+    .maps-link {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: .78rem; color: #2563eb; text-decoration: none;
+      font-weight: 500; margin-top: 6px; padding: 3px 8px;
+      border: 1px solid #dbeafe; border-radius: 5px;
+      background: #eff6ff; transition: background .1s;
+    }
+    .maps-link:hover { background: #dbeafe; }
+
+    /* ── Hotel booking chip ── */
+    .booking-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: .75rem; font-weight: 600;
+      background: #fff7ed; color: #c2410c;
+      border: 1px solid #fed7aa; border-radius: 6px;
+      padding: 4px 10px; margin-top: 8px;
+    }
+
+    /* ── Village info panel ── */
+    .village-panel {
+      border-top: 1px solid #f0f0ee;
+      background: #fafaf9;
+      padding: 16px 24px 18px;
+    }
+    .village-panel-header {
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: #9ca3af; margin-bottom: 10px;
+    }
+    .village-name {
+      font-size: .9rem; font-weight: 700; color: #111; margin-bottom: 5px;
+    }
+    .village-desc {
+      font-size: .85rem; color: #4b5563;
+      line-height: 1.55; margin-bottom: 10px;
+    }
+    .village-highlights {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .highlight-chip {
+      font-size: .72rem;
+      background: #f3f4f6; color: #374151;
+      border: 1px solid #e5e7eb;
+      border-radius: 99px; padding: 3px 10px; font-weight: 500;
+    }
+
+    /* ── Dining section ── */
+    .dining-section {
+      border-top: 1px dashed #d1d5db;
+      margin-top: 14px;
+      padding-top: 12px;
+    }
+    .dining-header {
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: #9ca3af; margin-bottom: 10px;
+    }
+    .dining-options { display: flex; flex-direction: column; gap: 8px; }
+    .dining-option {
+      padding: 10px 12px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+    }
+    .dining-option-top {
+      display: flex; align-items: baseline; gap: 8px;
+      flex-wrap: wrap; margin-bottom: 3px;
+    }
+    .dining-name { font-size: .88rem; font-weight: 700; color: #111; }
+    .dining-type {
+      font-size: .66rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 99px;
+      background: #f3f4f6; color: #6b7280;
+    }
+    .dining-type.pub    { background: #fef3c7; color: #92400e; }
+    .dining-type.fish   { background: #eff6ff; color: #1d4ed8; }
+    .dining-type.fine   { background: #fdf4ff; color: #7e22ce; }
+    .dining-type.bistro { background: #ecfdf5; color: #065f46; }
+    .dining-type.wine   { background: #fdf2f8; color: #9d174d; }
+    .dining-type.whisky { background: #fffbeb; color: #b45309; }
+    .dining-desc { font-size: .8rem; color: #6b7280; line-height: 1.45; }
+
+    /* ── Music section ── */
+    .music-section {
+      border-top: 1px dashed #d1d5db;
+      margin-top: 14px; padding-top: 12px;
+    }
+    .music-header {
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: #9ca3af; margin-bottom: 10px;
+    }
+    .music-list { display: flex; flex-direction: column; gap: 5px; }
+    .music-item { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+    .music-artist { font-size: .85rem; font-weight: 700; color: #111; }
+    .music-track { font-size: .82rem; color: #6b7280; font-style: italic; }
+
+    /* ── Journey map ── */
+    .map-wrapper {
+      max-width: 760px; margin: 36px auto 0; padding: 0 24px;
+    }
+    .map-wrapper h2 {
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #9ca3af; margin-bottom: 14px;
+    }
+    .map-container {
+      background: #fff; border: 1px solid #e5e5e3;
+      border-radius: 12px; overflow: hidden;
+      padding: 16px; text-align: center;
+    }
+    .map-container svg { max-width: 420px; width: 100%; border-radius: 8px; }
+    .map-caption { font-size: .72rem; color: #9ca3af; margin-top: 8px; }
+
+    /* ── Missed hotspots ── */
+    .hotspot-section {
+      max-width: 760px; margin: 0 auto; padding: 0 24px 60px;
+    }
+    .hotspot-intro {
+      font-size: .85rem; color: #6b7280; margin-bottom: 24px; line-height: 1.6;
+    }
+    .hotspot-region-block { margin-bottom: 28px; }
+    .hotspot-region-title {
+      font-size: .75rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: #374151;
+      padding-bottom: 7px; margin-bottom: 12px;
+      border-bottom: 2px solid #e5e5e3;
+    }
+    .hotspot-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 10px;
+    }
+    .hotspot-card {
+      background: #fff; border: 1px solid #e5e5e3;
+      border-radius: 8px; padding: 12px 14px;
+    }
+    .hotspot-name { font-size: .88rem; font-weight: 700; color: #111; display: block; }
+    .hotspot-dist {
+      font-size: .7rem; color: #d97706; font-weight: 600;
+      display: block; margin-top: 2px; margin-bottom: 4px;
+    }
+    .hotspot-desc { font-size: .78rem; color: #6b7280; line-height: 1.45; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 24px;
+      font-size: .78rem; color: #c1c1be;
+    }
+
+/* ── Navigation tabs ── */
+.nav-tabs {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e3;
+  padding: 0 24px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.nav-tab {
+  display: inline-block;
+  padding: 12px 18px;
+  font-size: .82rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color .15s, border-color .15s;
+}
+.nav-tab:hover { color: #111; }
+.nav-tab.active { color: #111; border-bottom-color: #111; }
+
+/* ── Interests section ── */
+.interests-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+.interest-person { margin-bottom: 28px; }
+.interest-person-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e5e5e3;
+}
+.interest-person-name {
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.interest-person-name.nicolas { color: #1d4ed8; }
+.interest-person-name.steffi  { color: #9333ea; }
+.interest-theme {
+  font-size: .72rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+.interest-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+}
+.interest-card {
+  background: #fff;
+  border: 1px solid #e5e5e3;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.interest-card.nicolas         { border-left: 3px solid #1d4ed8; }
+.interest-card.steffi-hp       { border-left: 3px solid #9333ea; }
+.interest-card.steffi-outlander{ border-left: 3px solid #dc2626; }
+.interest-name  { font-size: .88rem; font-weight: 700; color: #111; display: block; }
+.interest-dist  { font-size: .7rem; color: #d97706; font-weight: 600; display: block; margin-top: 2px; margin-bottom: 4px; }
+.interest-desc  { font-size: .78rem; color: #6b7280; line-height: 1.45; }
+
+/* ── Walks section ── */
+.walks-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+.walk-cards { display: flex; flex-direction: column; gap: 10px; }
+.walk-card {
+  background: #fff;
+  border: 1px solid #e5e5e3;
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.walk-difficulty {
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 99px;
+  white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+}
+.walk-difficulty.easy   { background: #ecfdf5; color: #059669; }
+.walk-difficulty.medium { background: #fefce8; color: #ca8a04; }
+.walk-difficulty.hard   { background: #fff1f2; color: #e11d48; }
+.walk-body { flex: 1; }
+.walk-name { font-size: .92rem; font-weight: 700; color: #111; }
+.walk-meta {
+  font-size: .78rem; color: #6b7280;
+  margin-top: 3px; margin-bottom: 5px;
+  display: flex; gap: 14px; flex-wrap: wrap;
+}
+.walk-desc { font-size: .8rem; color: #4b5563; line-height: 1.5; }
