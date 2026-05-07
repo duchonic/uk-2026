@@ -337,6 +337,111 @@
       text-align: center; padding: 24px;
       font-size: .78rem; color: #c1c1be;
     }
+
+    /* ── Tabs ── */
+    .tab-nav {
+      display: flex;
+      justify-content: center;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e3;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      padding: 14px 22px;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: #6b7280;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: #111; }
+    .tab-btn.active { color: #111; border-bottom-color: #111; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Music page ── */
+    .music-page { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+    .music-destination {
+      background: #fff; border: 1px solid #e5e5e3;
+      border-radius: 10px; margin-bottom: 16px; overflow: hidden;
+    }
+    .music-dest-header {
+      padding: 16px 20px 12px;
+      border-bottom: 1px solid #f0f0ee;
+      display: flex; align-items: baseline; gap: 10px;
+    }
+    .music-dest-title { font-size: 1rem; font-weight: 700; color: #111; }
+    .music-dest-date { font-size: .75rem; color: #9ca3af; }
+    .music-tracks { padding: 12px 20px 16px; display: flex; flex-direction: column; gap: 6px; }
+    .music-track-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid #f7f7f5; }
+    .music-track-row:last-child { border-bottom: none; }
+    .music-track-num { font-size: .7rem; color: #d1d5db; font-weight: 700; width: 16px; flex-shrink: 0; }
+    .music-track-artist { font-size: .88rem; font-weight: 700; color: #111; }
+    .music-track-title { font-size: .83rem; color: #6b7280; font-style: italic; }
+
+    /* ── Secret page ── */
+    .secret-page { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+    .secret-card {
+      background: #fff; border: 1px solid #e5e5e3;
+      border-radius: 10px; margin-bottom: 16px;
+      padding: 20px 24px;
+    }
+    .secret-card-title { font-size: 1rem; font-weight: 700; color: #111; margin-bottom: 6px; }
+    .secret-card-body { font-size: .88rem; color: #4b5563; line-height: 1.6; }
+
+    /* ── Vikings section ── */
+    .viking-section {
+      max-width: 760px; margin: 0 auto; padding: 0 24px 60px;
+    }
+    .viking-intro {
+      font-size: .85rem; color: #6b7280; margin-bottom: 24px; line-height: 1.6;
+    }
+    .viking-block { margin-bottom: 32px; }
+    .viking-block-title {
+      font-size: .75rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: #374151;
+      padding-bottom: 7px; margin-bottom: 12px;
+      border-bottom: 2px solid #e5e5e3;
+    }
+    .viking-timeline { display: flex; flex-direction: column; gap: 10px; }
+    .viking-raid {
+      background: #fff; border: 1px solid #e5e5e3;
+      border-radius: 8px; padding: 12px 14px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .viking-year {
+      font-size: .8rem; font-weight: 700; color: #7c3aed;
+      background: #fdf4ff; border: 1px solid #e9d5ff;
+      border-radius: 6px; padding: 3px 9px;
+      flex-shrink: 0; white-space: nowrap;
+    }
+    .viking-raid-body { flex: 1; }
+    .viking-raid-place { font-size: .9rem; font-weight: 700; color: #111; }
+    .viking-raid-desc { font-size: .8rem; color: #6b7280; margin-top: 2px; line-height: 1.45; }
+    .viking-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 10px;
+    }
+    .viking-card {
+      background: #fff; border: 1px solid #e5e5e3;
+      border-radius: 8px; padding: 12px 14px;
+      border-left: 3px solid #7c3aed;
+    }
+    .viking-card-name { font-size: .88rem; font-weight: 700; color: #111; display: block; }
+    .viking-card-day {
+      font-size: .7rem; color: #7c3aed; font-weight: 600;
+      display: block; margin-top: 2px; margin-bottom: 5px;
+    }
+    .viking-card-desc { font-size: .78rem; color: #6b7280; line-height: 1.45; }
   </style>
 </head>
 <body>
@@ -369,6 +474,15 @@
     </div>
   </div>
 </header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('travel', this)">Travel Overview</button>
+  <button class="tab-btn" onclick="switchTab('vikings', this)">⚔️ Vikings</button>
+  <button class="tab-btn" onclick="switchTab('music', this)">🎵 Music</button>
+  <button class="tab-btn" onclick="switchTab('secret', this)">🔒 Secret Stuff</button>
+</nav>
+
+<div class="tab-panel active" id="tab-travel">
 
 <!-- Travel overview bars -->
 <div class="distance-section">
@@ -1651,160 +1765,338 @@
 
 </main>
 
-<!-- Missed hotspots -->
-<div class="hotspot-section">
-  <div class="section-label" style="margin-bottom:8px;">Sights we're skipping — worth rerouting?</div>
-  <p class="hotspot-intro">Nearby attractions not currently on the itinerary. All reachable by public transport from the relevant base.</p>
 
-  <div class="hotspot-region-block">
-    <div class="hotspot-region-title">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland — near Edinburgh / Dalgety Bay</div>
-    <div class="hotspot-cards">
-      <div class="hotspot-card">
-        <span class="hotspot-name">Stirling Castle</span>
-        <span class="hotspot-dist">~45 min by train from Edinburgh</span>
-        <div class="hotspot-desc">One of Scotland's most important castles, perched on a volcanic crag. Mary Queen of Scots was crowned here. Direct trains from Edinburgh Waverley.</div>
+</div><!-- end tab-travel -->
+
+<div class="tab-panel" id="tab-vikings">
+<!-- Vikings section -->
+<div class="viking-section">
+  <div class="section-label" style="margin-bottom:8px;">⚔️ Vikings — History Along Our Route</div>
+  <p class="viking-intro">Our trip follows almost exactly the heartland of Viking-age England. From the Northumbrian coast raided in the 790s to the Norse kingdom of Jorvik (York), the whole corridor from Edinburgh to Harrogate was shaped by the Vikings.</p>
+
+  <div class="viking-block">
+    <div class="viking-block-title">First raids on England</div>
+    <div class="viking-timeline">
+      <div class="viking-raid">
+        <div class="viking-year">786–802</div>
+        <div class="viking-raid-body">
+          <div class="viking-raid-place">Portland, Dorset</div>
+          <div class="viking-raid-desc">Three Viking ships landed on the Dorset coast — the earliest recorded Norse contact with England. A royal official who rode out to meet them was killed. Not on our route, but the starting point of the story.</div>
+        </div>
       </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Rosslyn Chapel</span>
-        <span class="hotspot-dist">~35 min by bus from Edinburgh</span>
-        <div class="hotspot-desc">The extraordinary 15th-century chapel made famous by The Da Vinci Code — but far more interesting in real life. Lothian Bus 37 runs directly.</div>
+      <div class="viking-raid">
+        <div class="viking-year">793</div>
+        <div class="viking-raid-body">
+          <div class="viking-raid-place">Lindisfarne (Holy Island)</div>
+          <div class="viking-raid-desc">The raid on the monastery of Holy Island shocked the Christian world. Monks were killed, treasures looted, others taken as slaves. Widely considered the start of the Viking Age in Britain. The island lies between Dunbar and Newcastle — directly on our route.</div>
+        </div>
       </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Loch Lomond &amp; The Trossachs</span>
-        <span class="hotspot-dist">~1h 20 by train from Edinburgh</span>
-        <div class="hotspot-desc">Scotland's first national park — dramatic loch scenery, Ben Lomond, and the charming village of Luss. Train to Balloch, then buses into the park.</div>
+      <div class="viking-raid">
+        <div class="viking-year">794</div>
+        <div class="viking-raid-body">
+          <div class="viking-raid-place">Northumbria — Jarrow</div>
+          <div class="viking-raid-desc">A raid on the monastery of St Paul's at Jarrow (just east of Newcastle) followed a year later, cementing the pattern of attacks on wealthy coastal monasteries. The church at Jarrow still stands today.</div>
+        </div>
       </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">St Andrews (full day)</span>
-        <span class="hotspot-dist">~1h from Dalgety Bay (2 trains)</span>
-        <div class="hotspot-desc">Already listed as a quick visit — but the medieval cathedral ruins, castle, and Old Course deserve a full day. Easiest from Dalgety Bay via Leuchars.</div>
+      <div class="viking-raid">
+        <div class="viking-year">866</div>
+        <div class="viking-raid-body">
+          <div class="viking-raid-place">York — captured by the Great Heathen Army</div>
+          <div class="viking-raid-desc">A huge coalition of Danish warriors seized York and renamed it Jorvik. It became the capital of a Viking kingdom and one of the most important Norse cities in Europe. Viking rule lasted almost a century, ending in 954 with the death of Eric Bloodaxe.</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="hotspot-region-block">
-    <div class="hotspot-region-title">🏰 Northeast England — near Newcastle</div>
-    <div class="hotspot-cards">
-      <div class="hotspot-card">
-        <span class="hotspot-name">Angel of the North</span>
-        <span class="hotspot-dist">~20 min by Metro from Newcastle</span>
-        <div class="hotspot-desc">Antony Gormley's iconic 20-metre steel sculpture. Take the Metro to Gateshead and a short walk. One of England's most visited artworks.</div>
+  <div class="viking-block">
+    <div class="viking-block-title">Viking locations on our trip</div>
+    <div class="viking-cards">
+      <div class="viking-card">
+        <span class="viking-card-name">Lindisfarne (Holy Island)</span>
+        <span class="viking-card-day">Between Dunbar and Newcastle — 28 July</span>
+        <div class="viking-card-desc">Site of the famous 793 raid. The priory ruins still stand on a tidal island, reached by a causeway that floods at high tide. A natural stop on the drive south from Dunbar to Newcastle.</div>
       </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Alnwick Castle</span>
-        <span class="hotspot-dist">~35 min by train + bus from Newcastle</span>
-        <div class="hotspot-desc">The "Harry Potter castle" (exterior filming location) plus medieval state rooms and the extraordinary Alnwick Garden with its poison garden. Arriva X18 bus.</div>
+      <div class="viking-card">
+        <span class="viking-card-name">Jarrow</span>
+        <span class="viking-card-day">Near Newcastle — 28–30 July</span>
+        <div class="viking-card-desc">The monastery of St Paul's, home of the Venerable Bede, was raided in 794. The Saxon church still stands and is one of the oldest in England. Just a short trip east of Newcastle.</div>
       </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Bamburgh Castle</span>
-        <span class="hotspot-dist">~1h from Newcastle (train + bus)</span>
-        <div class="hotspot-desc">A dramatic Anglo-Saxon fortress on a coastal basalt crag, with long sandy beaches stretching below. Train to Chathill, then bus.</div>
+      <div class="viking-card">
+        <span class="viking-card-name">Whitby</span>
+        <span class="viking-card-day">31 July – 2 August</span>
+        <div class="viking-card-desc">The name is pure Norse: hvítr (white) + bý (settlement). The abbey was raided and the town became part of the Danelaw. Viking heritage is woven into the streets, names, and landscape.</div>
       </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Holy Island / Lindisfarne</span>
-        <span class="hotspot-dist">~1h 20 from Newcastle (train + bus)</span>
-        <div class="hotspot-desc">Tidal island with a medieval priory, ruined castle, and extraordinary atmosphere. Check tide tables — the island is cut off twice daily. Bus from Berwick.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Hadrian's Wall</span>
-        <span class="hotspot-dist">~45 min by bus from Newcastle</span>
-        <div class="hotspot-desc">The best-preserved sections (Housesteads, Vindolanda) are 45 min by the AD122 Hadrian's Wall Bus (seasonal), which runs direct from Newcastle.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Beamish Open Air Museum</span>
-        <span class="hotspot-dist">~30 min by bus from Newcastle</span>
-        <div class="hotspot-desc">A brilliantly recreated 1900s and 1940s town — working trams, period shops, and a functioning colliery. Bus X71 from Newcastle.</div>
+      <div class="viking-card">
+        <span class="viking-card-name">York — Jorvik</span>
+        <span class="viking-card-day">3 August</span>
+        <div class="viking-card-desc">The Viking capital of England. Captured in 866, ruled for nearly a century. The Jorvik Viking Centre (Coppergate) reconstructs life in Norse-age York and is one of the best Viking museums in the world.</div>
       </div>
     </div>
   </div>
 
-  <div class="hotspot-region-block">
-    <div class="hotspot-region-title">🌊 North Yorkshire Coast — near Whitby</div>
-    <div class="hotspot-cards">
-      <div class="hotspot-card">
-        <span class="hotspot-name">Staithes</span>
-        <span class="hotspot-dist">~25 min by bus from Whitby</span>
-        <div class="hotspot-desc">A strikingly atmospheric fishing village crammed into a steep narrow gorge — Captain Cook's first job was here. Arriva bus from Whitby.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Runswick Bay</span>
-        <span class="hotspot-dist">~20 min by bus from Whitby</span>
-        <div class="hotspot-desc">A curving sandy beach backed by a tumbledown village of red-roofed cottages. One of the most beautiful bays on the Yorkshire coast.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Rievaulx Abbey</span>
-        <span class="hotspot-dist">~45 min by bus from Whitby</span>
-        <div class="hotspot-desc">Hauntingly beautiful ruined Cistercian abbey in a wooded valley. One of England's finest medieval ruins — the scale is remarkable.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hotspot-region-block">
-    <div class="hotspot-region-title">🌿 Yorkshire Dales — near Harrogate / Ilkley</div>
-    <div class="hotspot-cards">
-      <div class="hotspot-card">
-        <span class="hotspot-name">Fountains Abbey &amp; Studley Royal</span>
-        <span class="hotspot-dist">~20 min by bus from Harrogate</span>
-        <div class="hotspot-desc">UNESCO World Heritage Site — England's largest monastic ruin set within a stunning 18th-century water garden. Bus 139 from Harrogate. Do not miss.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Bolton Abbey</span>
-        <span class="hotspot-dist">~15 min by bus from Ilkley</span>
-        <div class="hotspot-desc">Romantic ruined Augustinian priory on the banks of the Wharfe, with beautiful woodland walks along the Strid. Wharfedale bus from Ilkley.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Skipton Castle</span>
-        <span class="hotspot-dist">~30 min by train from Harrogate</span>
-        <div class="hotspot-desc">One of England's best-preserved medieval castles, with a charming market town to explore. Direct trains from Harrogate on the Settle-Carlisle line.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Yorkshire Dales</span>
-        <span class="hotspot-dist">~50 min by bus from Harrogate</span>
-        <div class="hotspot-desc">Wensleydale (and its cheese), Swaledale, and Malham Cove — dramatic limestone scenery. Dales Bus services run seasonally from Harrogate.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hotspot-region-block">
-    <div class="hotspot-region-title">🏛️ Southeast England — near St Albans / London</div>
-    <div class="hotspot-cards">
-      <div class="hotspot-card">
-        <span class="hotspot-name">Cambridge</span>
-        <span class="hotspot-dist">~45 min by train from St Albans</span>
-        <div class="hotspot-desc">King's College Chapel, punting on the Cam, and the Fitzwilliam Museum. Train from St Albans City via London Farringdon to Cambridge.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Oxford</span>
-        <span class="hotspot-dist">~1h by coach from London</span>
-        <div class="hotspot-desc">The Bodleian Library, Christ Church, the Ashmolean Museum, and medieval lanes. Frequent Oxford Tube coaches from London Victoria.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Bath &amp; the Roman Baths</span>
-        <span class="hotspot-dist">~1h 20 by train from London</span>
-        <div class="hotspot-desc">The only natural hot spring in Britain, with a perfectly preserved Roman bathing complex and Georgian architecture. Direct trains from Paddington.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Windsor Castle</span>
-        <span class="hotspot-dist">~35 min by train from St Albans</span>
-        <div class="hotspot-desc">The oldest and largest occupied castle in the world. Train to Windsor &amp; Eton Central from London Paddington or via Slough.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">Stonehenge</span>
-        <span class="hotspot-dist">~1h 30 by train + bus from London</span>
-        <div class="hotspot-desc">Train to Salisbury from London Waterloo, then the Stonehenge Tour bus. Best visited first thing in the morning before crowds arrive.</div>
-      </div>
-      <div class="hotspot-card">
-        <span class="hotspot-name">The Cotswolds</span>
-        <span class="hotspot-dist">~1h 30 from London by train</span>
-        <div class="hotspot-desc">Bourton-on-the-Water, Burford, and the Slaughters — honey-stone villages and rolling hills. Train to Moreton-in-Marsh from Paddington.</div>
-      </div>
-    </div>
+  <div class="viking-block">
+    <div class="viking-block-title">Northumbria &amp; Yorkshire — the Viking legacy</div>
+    <p class="viking-intro" style="margin-bottom:0;">Northumbria was the first and most heavily raided Anglo-Saxon kingdom — it covered our entire route from Dunbar to York. After the Great Heathen Army's conquest of 866, the region became the heartland of Norse England. The name <strong>Yorkshire</strong> itself comes from <em>Jorvik-shire</em>, the administrative district around the Viking capital. Dozens of place names across the region ending in <em>-by</em>, <em>-thorpe</em>, and <em>-thwaite</em> are Old Norse in origin — including Whitby, Selby, and Grimsby. The Danelaw (the zone of Viking legal and cultural influence) covered almost everything we'll visit north of the Humber.</p>
   </div>
 </div>
+
+</div><!-- end tab-vikings -->
+
+<div class="tab-panel" id="tab-music">
+  <div class="music-page">
+    <div class="section-label" style="margin-bottom:16px;">Soundtrack — By Destination</div>
+
+    <div class="music-destination">
+      <div class="music-dest-header">
+        <span class="music-dest-title">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Edinburgh &amp; Dalgety Bay</span>
+        <span class="music-dest-date">24–27 July</span>
+      </div>
+      <div class="music-tracks">
+        <div class="music-track-row"><span class="music-track-num">1</span><span class="music-track-artist">The Proclaimers</span><span class="music-track-title">"I'm Gonna Be (500 Miles)"</span></div>
+        <div class="music-track-row"><span class="music-track-num">2</span><span class="music-track-artist">Franz Ferdinand</span><span class="music-track-title">"Take Me Out"</span></div>
+        <div class="music-track-row"><span class="music-track-num">3</span><span class="music-track-artist">Frightened Rabbit</span><span class="music-track-title">"Modern Leper"</span></div>
+        <div class="music-track-row"><span class="music-track-num">4</span><span class="music-track-artist">Mogwai</span><span class="music-track-title">"Auto Rock"</span></div>
+        <div class="music-track-row"><span class="music-track-num">5</span><span class="music-track-artist">Biffy Clyro</span><span class="music-track-title">"Mountains"</span></div>
+      </div>
+    </div>
+
+    <div class="music-destination">
+      <div class="music-dest-header">
+        <span class="music-dest-title">🌉 Newcastle upon Tyne</span>
+        <span class="music-dest-date">28–30 July</span>
+      </div>
+      <div class="music-tracks">
+        <div class="music-track-row"><span class="music-track-num">1</span><span class="music-track-artist">Sam Fender</span><span class="music-track-title">"Hypersonic Missiles"</span></div>
+        <div class="music-track-row"><span class="music-track-num">2</span><span class="music-track-artist">The Animals</span><span class="music-track-title">"House of the Rising Sun"</span></div>
+        <div class="music-track-row"><span class="music-track-num">3</span><span class="music-track-artist">Sting</span><span class="music-track-title">"Every Breath You Take"</span></div>
+        <div class="music-track-row"><span class="music-track-num">4</span><span class="music-track-artist">Mark Knopfler</span><span class="music-track-title">"Going Home (Local Hero)"</span></div>
+        <div class="music-track-row"><span class="music-track-num">5</span><span class="music-track-artist">Pet Shop Boys</span><span class="music-track-title">"West End Girls"</span></div>
+      </div>
+    </div>
+
+    <div class="music-destination">
+      <div class="music-dest-header">
+        <span class="music-dest-title">🦇 Whitby &amp; the Moors</span>
+        <span class="music-dest-date">31 July – 2 August</span>
+      </div>
+      <div class="music-tracks">
+        <div class="music-track-row"><span class="music-track-num">1</span><span class="music-track-artist">The Unthanks</span><span class="music-track-title">"Last"</span></div>
+        <div class="music-track-row"><span class="music-track-num">2</span><span class="music-track-artist">Kate Rusby</span><span class="music-track-title">"Underneath the Stars"</span></div>
+        <div class="music-track-row"><span class="music-track-num">3</span><span class="music-track-artist">Elbow</span><span class="music-track-title">"One Day Like This"</span></div>
+        <div class="music-track-row"><span class="music-track-num">4</span><span class="music-track-artist">Nick Drake</span><span class="music-track-title">"Northern Sky"</span></div>
+        <div class="music-track-row"><span class="music-track-num">5</span><span class="music-track-artist">Richard Hawley</span><span class="music-track-title">"Tonight the Streets Are Ours"</span></div>
+      </div>
+    </div>
+
+    <div class="music-destination">
+      <div class="music-dest-header">
+        <span class="music-dest-title">⚔️ York (Jorvik)</span>
+        <span class="music-dest-date">3 August</span>
+      </div>
+      <div class="music-tracks">
+        <div class="music-track-row"><span class="music-track-num">1</span><span class="music-track-artist">Shed Seven</span><span class="music-track-title">"Chasing Rainbows"</span></div>
+        <div class="music-track-row"><span class="music-track-num">2</span><span class="music-track-artist">The Howl &amp; The Hum</span><span class="music-track-title">"Human"</span></div>
+        <div class="music-track-row"><span class="music-track-num">3</span><span class="music-track-artist">The Cribs</span><span class="music-track-title">"Men's Needs"</span></div>
+        <div class="music-track-row"><span class="music-track-num">4</span><span class="music-track-artist">Arctic Monkeys</span><span class="music-track-title">"Do I Wanna Know?"</span></div>
+        <div class="music-track-row"><span class="music-track-num">5</span><span class="music-track-artist">Joe Cocker</span><span class="music-track-title">"With a Little Help from My Friends"</span></div>
+      </div>
+    </div>
+
+    <div class="music-destination">
+      <div class="music-dest-header">
+        <span class="music-dest-title">🌿 Harrogate &amp; Yorkshire</span>
+        <span class="music-dest-date">4–5 August</span>
+      </div>
+      <div class="music-tracks">
+        <div class="music-track-row"><span class="music-track-num">1</span><span class="music-track-artist">Kaiser Chiefs</span><span class="music-track-title">"Ruby"</span></div>
+        <div class="music-track-row"><span class="music-track-num">2</span><span class="music-track-artist">The Wedding Present</span><span class="music-track-title">"Kennedy"</span></div>
+        <div class="music-track-row"><span class="music-track-num">3</span><span class="music-track-artist">Pulp</span><span class="music-track-title">"Common People"</span></div>
+        <div class="music-track-row"><span class="music-track-num">4</span><span class="music-track-artist">The Pigeon Detectives</span><span class="music-track-title">"I'm Not Sorry"</span></div>
+        <div class="music-track-row"><span class="music-track-num">5</span><span class="music-track-artist">The Bluetones</span><span class="music-track-title">"Slight Return"</span></div>
+      </div>
+    </div>
+
+    <div class="music-destination">
+      <div class="music-dest-header">
+        <span class="music-dest-title">🏛️ St Albans &amp; London</span>
+        <span class="music-dest-date">6–10 August</span>
+      </div>
+      <div class="music-tracks">
+        <div class="music-track-row"><span class="music-track-num">1</span><span class="music-track-artist">The Zombies</span><span class="music-track-title">"Time of the Season"</span></div>
+        <div class="music-track-row"><span class="music-track-num">2</span><span class="music-track-artist">Supertramp</span><span class="music-track-title">"Dreamer"</span></div>
+        <div class="music-track-row"><span class="music-track-num">3</span><span class="music-track-artist">Blur</span><span class="music-track-title">"Country House"</span></div>
+        <div class="music-track-row"><span class="music-track-num">4</span><span class="music-track-artist">The Kinks</span><span class="music-track-title">"Waterloo Sunset"</span></div>
+        <div class="music-track-row"><span class="music-track-num">5</span><span class="music-track-artist">David Bowie</span><span class="music-track-title">"Heroes"</span></div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- end tab-music -->
+
+<div class="tab-panel" id="tab-secret">
+  <div class="hotspot-section">
+    <div class="section-label" style="margin-bottom:8px;">Sights we're skipping — worth rerouting?</div>
+    <p class="hotspot-intro">Nearby attractions not currently on the itinerary. All reachable by public transport from the relevant base.</p>
+
+    <div class="hotspot-region-block">
+      <div class="hotspot-region-title">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland — near Edinburgh / Dalgety Bay</div>
+      <div class="hotspot-cards">
+        <div class="hotspot-card">
+          <span class="hotspot-name">Stirling Castle</span>
+          <span class="hotspot-dist">~45 min by train from Edinburgh</span>
+          <div class="hotspot-desc">One of Scotland's most important castles, perched on a volcanic crag. Mary Queen of Scots was crowned here. Direct trains from Edinburgh Waverley.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Rosslyn Chapel</span>
+          <span class="hotspot-dist">~35 min by bus from Edinburgh</span>
+          <div class="hotspot-desc">The extraordinary 15th-century chapel made famous by The Da Vinci Code — but far more interesting in real life. Lothian Bus 37 runs directly.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Loch Lomond &amp; The Trossachs</span>
+          <span class="hotspot-dist">~1h 20 by train from Edinburgh</span>
+          <div class="hotspot-desc">Scotland's first national park — dramatic loch scenery, Ben Lomond, and the charming village of Luss. Train to Balloch, then buses into the park.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">St Andrews (full day)</span>
+          <span class="hotspot-dist">~1h from Dalgety Bay (2 trains)</span>
+          <div class="hotspot-desc">Already listed as a quick visit — but the medieval cathedral ruins, castle, and Old Course deserve a full day. Easiest from Dalgety Bay via Leuchars.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hotspot-region-block">
+      <div class="hotspot-region-title">🏰 Northeast England — near Newcastle</div>
+      <div class="hotspot-cards">
+        <div class="hotspot-card">
+          <span class="hotspot-name">Angel of the North</span>
+          <span class="hotspot-dist">~20 min by Metro from Newcastle</span>
+          <div class="hotspot-desc">Antony Gormley's iconic 20-metre steel sculpture. Take the Metro to Gateshead and a short walk. One of England's most visited artworks.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Alnwick Castle</span>
+          <span class="hotspot-dist">~35 min by train + bus from Newcastle</span>
+          <div class="hotspot-desc">The "Harry Potter castle" (exterior filming location) plus medieval state rooms and the extraordinary Alnwick Garden with its poison garden. Arriva X18 bus.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Bamburgh Castle</span>
+          <span class="hotspot-dist">~1h from Newcastle (train + bus)</span>
+          <div class="hotspot-desc">A dramatic Anglo-Saxon fortress on a coastal basalt crag, with long sandy beaches stretching below. Train to Chathill, then bus.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Holy Island / Lindisfarne</span>
+          <span class="hotspot-dist">~1h 20 from Newcastle (train + bus)</span>
+          <div class="hotspot-desc">Tidal island with a medieval priory, ruined castle, and extraordinary atmosphere. Check tide tables — the island is cut off twice daily. Bus from Berwick.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Hadrian's Wall</span>
+          <span class="hotspot-dist">~45 min by bus from Newcastle</span>
+          <div class="hotspot-desc">The best-preserved sections (Housesteads, Vindolanda) are 45 min by the AD122 Hadrian's Wall Bus (seasonal), which runs direct from Newcastle.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Beamish Open Air Museum</span>
+          <span class="hotspot-dist">~30 min by bus from Newcastle</span>
+          <div class="hotspot-desc">A brilliantly recreated 1900s and 1940s town — working trams, period shops, and a functioning colliery. Bus X71 from Newcastle.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hotspot-region-block">
+      <div class="hotspot-region-title">🌊 North Yorkshire Coast — near Whitby</div>
+      <div class="hotspot-cards">
+        <div class="hotspot-card">
+          <span class="hotspot-name">Staithes</span>
+          <span class="hotspot-dist">~25 min by bus from Whitby</span>
+          <div class="hotspot-desc">A strikingly atmospheric fishing village crammed into a steep narrow gorge — Captain Cook's first job was here. Arriva bus from Whitby.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Runswick Bay</span>
+          <span class="hotspot-dist">~20 min by bus from Whitby</span>
+          <div class="hotspot-desc">A curving sandy beach backed by a tumbledown village of red-roofed cottages. One of the most beautiful bays on the Yorkshire coast.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Rievaulx Abbey</span>
+          <span class="hotspot-dist">~45 min by bus from Whitby</span>
+          <div class="hotspot-desc">Hauntingly beautiful ruined Cistercian abbey in a wooded valley. One of England's finest medieval ruins — the scale is remarkable.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hotspot-region-block">
+      <div class="hotspot-region-title">🌿 Yorkshire Dales — near Harrogate / Ilkley</div>
+      <div class="hotspot-cards">
+        <div class="hotspot-card">
+          <span class="hotspot-name">Fountains Abbey &amp; Studley Royal</span>
+          <span class="hotspot-dist">~20 min by bus from Harrogate</span>
+          <div class="hotspot-desc">UNESCO World Heritage Site — England's largest monastic ruin set within a stunning 18th-century water garden. Bus 139 from Harrogate. Do not miss.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Bolton Abbey</span>
+          <span class="hotspot-dist">~15 min by bus from Ilkley</span>
+          <div class="hotspot-desc">Romantic ruined Augustinian priory on the banks of the Wharfe, with beautiful woodland walks along the Strid. Wharfedale bus from Ilkley.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Skipton Castle</span>
+          <span class="hotspot-dist">~30 min by train from Harrogate</span>
+          <div class="hotspot-desc">One of England's best-preserved medieval castles, with a charming market town to explore. Direct trains from Harrogate on the Settle-Carlisle line.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Yorkshire Dales</span>
+          <span class="hotspot-dist">~50 min by bus from Harrogate</span>
+          <div class="hotspot-desc">Wensleydale (and its cheese), Swaledale, and Malham Cove — dramatic limestone scenery. Dales Bus services run seasonally from Harrogate.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hotspot-region-block">
+      <div class="hotspot-region-title">🏛️ Southeast England — near St Albans / London</div>
+      <div class="hotspot-cards">
+        <div class="hotspot-card">
+          <span class="hotspot-name">Cambridge</span>
+          <span class="hotspot-dist">~45 min by train from St Albans</span>
+          <div class="hotspot-desc">King's College Chapel, punting on the Cam, and the Fitzwilliam Museum. Train from St Albans City via London Farringdon to Cambridge.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Oxford</span>
+          <span class="hotspot-dist">~1h by coach from London</span>
+          <div class="hotspot-desc">The Bodleian Library, Christ Church, the Ashmolean Museum, and medieval lanes. Frequent Oxford Tube coaches from London Victoria.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Bath &amp; the Roman Baths</span>
+          <span class="hotspot-dist">~1h 20 by train from London</span>
+          <div class="hotspot-desc">The only natural hot spring in Britain, with a perfectly preserved Roman bathing complex and Georgian architecture. Direct trains from Paddington.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Windsor Castle</span>
+          <span class="hotspot-dist">~35 min by train from St Albans</span>
+          <div class="hotspot-desc">The oldest and largest occupied castle in the world. Train to Windsor &amp; Eton Central from London Paddington or via Slough.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">Stonehenge</span>
+          <span class="hotspot-dist">~1h 30 by train + bus from London</span>
+          <div class="hotspot-desc">Train to Salisbury from London Waterloo, then the Stonehenge Tour bus. Best visited first thing in the morning before crowds arrive.</div>
+        </div>
+        <div class="hotspot-card">
+          <span class="hotspot-name">The Cotswolds</span>
+          <span class="hotspot-dist">~1h 30 from London by train</span>
+          <div class="hotspot-desc">Bourton-on-the-Water, Burford, and the Slaughters — honey-stone villages and rolling hills. Train to Moreton-in-Marsh from Paddington.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- end tab-secret -->
 
 <footer>
   🇨🇭 → 🏴󠁧󠁢󠁳󠁣󠁴󠁿 🏴󠁧󠁢󠥥󠁮󠁧󠁿 → 🇨🇭 · UK Summer 2026 · 24 July – 10 August
 </footer>
 
+<script>
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+</script>
 </body>
 </html>
